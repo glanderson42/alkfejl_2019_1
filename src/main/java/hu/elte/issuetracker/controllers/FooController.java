@@ -37,11 +37,10 @@ public class FooController {
   @GetMapping("/{id}")
   public ResponseEntity<Foo> get(@PathVariable Integer id) {
     Optional<Foo> foo = fooRepository.findById(id);
-    if (!foo.isPresent())
-    {
+    if (!foo.isPresent()) {
       ResponseEntity.notFound();
     }
-    
+
     return ResponseEntity.ok(foo.get());
   }
 
@@ -50,25 +49,23 @@ public class FooController {
     Foo newFoo = fooRepository.save(foo);
     return ResponseEntity.ok(newFoo);
   }
-  
+
   @DeleteMapping("/{id}")
   public ResponseEntity delete(@PathVariable Integer id) {
     Optional<Foo> foo = fooRepository.findById(id);
-    if (!foo.isPresent())
-    {
+    if (!foo.isPresent()) {
       ResponseEntity.notFound();
     }
-    
+
     fooRepository.delete(foo.get());
-    
+
     return ResponseEntity.ok().build();
   }
 
   @PutMapping("/{id}")
   public ResponseEntity<Foo> put(@PathVariable Integer id, @RequestBody Foo foo) {
     Optional<Foo> oldFoo = fooRepository.findById(id);
-    if (!oldFoo.isPresent())
-    {
+    if (!oldFoo.isPresent()) {
       ResponseEntity.notFound();
     }
 
