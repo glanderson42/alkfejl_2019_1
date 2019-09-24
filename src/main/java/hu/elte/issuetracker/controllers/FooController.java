@@ -51,7 +51,7 @@ public class FooController {
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity delete(@PathVariable Integer id) {
+  public ResponseEntity<Foo> delete(@PathVariable Integer id) {
     Optional<Foo> foo = fooRepository.findById(id);
     if (!foo.isPresent()) {
       ResponseEntity.notFound();

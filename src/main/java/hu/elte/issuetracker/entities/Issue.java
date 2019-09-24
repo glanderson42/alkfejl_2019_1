@@ -28,13 +28,15 @@ public class Issue {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column
+    @Column(nullable = false)
+    @NotNull
     private String title;
 
     @Column
     private String description;
 
     @Column
+    @NotNull
     private String place;
 
     @Column
@@ -44,4 +46,8 @@ public class Issue {
     @Column
     @UpdateTimestamp
     private LocalDateTime updated_at;
+
+	public void setId(Integer id2) {
+        this.id = id2;
+    }
 }

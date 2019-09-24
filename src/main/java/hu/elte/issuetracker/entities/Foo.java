@@ -18,7 +18,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.Id;
 
 /**
  *
@@ -31,6 +30,11 @@ import org.springframework.data.annotation.Id;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class Foo implements Serializable {
+  /**
+   *
+   */
+  private static final long serialVersionUID = 1L;
+
   @javax.persistence.Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;
@@ -46,4 +50,8 @@ public class Foo implements Serializable {
   @Column
   @UpdateTimestamp
   private LocalDateTime updated_at;
+
+public void setId(Integer id2) {
+  this.id = id2;
+}
 }

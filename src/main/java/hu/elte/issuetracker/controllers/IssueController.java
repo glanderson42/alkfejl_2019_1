@@ -43,7 +43,7 @@ public class IssueController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Integer id) {
+    public ResponseEntity<Issue> delete(@PathVariable Integer id) {
         Optional<Issue> issue = issueRepository.findById(id);
         if(!issue.isPresent()) {
             ResponseEntity.notFound();
